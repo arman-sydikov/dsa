@@ -4,6 +4,9 @@
 # VS Code
 .vscode/
 
+# Mac
+.DS_Store
+
 ##### Go
 
 # Binaries for programs and plugins
