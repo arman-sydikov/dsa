@@ -1,5 +1,7 @@
+# https://cpfedcoach24.contest.codeforces.com/group/Y0bboME4W4/contest/506992/problem/C
+# https://cpfedcoach24.contest.codeforces.com/group/Y0bboME4W4/contest/506992/problem/D
+
 import sys
-import math
 
 # Read n from input
 n = int(input())
@@ -7,7 +9,7 @@ n = int(input())
 l = 1
 r = n
 while r - l > 1:
-    x = math.ceil(r / 2)
+    x = int((r + l) / 2)
     print(x, flush = True)
     if input() == "<":
         r = x - 1
