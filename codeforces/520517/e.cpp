@@ -1,65 +1,107 @@
 /**
  * https://kazakh.contest.codeforces.com/group/XlHYPT9hCQ/contest/520517/problem/E
+ * https://qna.habr.com/q/934791
  * @author Arman Sydikov
+ * 
+ *     (   (   )   [   {   }   ] 
+ *   | 1 | 2 | 3 | 4 | 5 | 6 | 7 
+ * --+---+---+---+---+---+---+---
+ * 1 | 1                      
+ * 2 | 2   1                  
+ * 3 | 1   0   1              
+ * 4 | 2   1   2   1          
+ * 5 | 3   2   3   2   1      
+ * 6 | 2   1   2   1   0   1   
+ * 7 | 1   0   1   0   1   2   1
  */
 #include <bits/stdc++.h>
 using namespace std;
+bool debug = false;
 
-// Функция для определения типа скобки
-int bracketType(char c) {
-    if (c == '(' || c == ')') return 0;
-    if (c == '[' || c == ']') return 1;
-    if (c == '{' || c == '}') return 2;
-    return -1;  // Недопустимый символ
-}
+string minRemovals(string& s) {
+    int n = s.size();
+    set<int> m[n][n];
 
-// Функция для нахождения минимального количества удалений
-// и восстановления правильной скобочной последовательности
-string minRemovals(const string& s) {
-    int n = s.length();
-    if (n == 0) return "";  // Пустая строка
-    
-    // Двумерный массив для хранения минимального количества удалений
-    vector<vector<int>> dp(n, vector<int>(n, 0));
-    
-    // Проходим по длине подстроки
-    for (int len = 2; len <= n; ++len) {
-        for (int l = 0; l + len - 1 < n; ++l) {
-            int r = l + len - 1;
-            // Если l и r - индексы начала и конца текущей подстроки
-            // Найдем минимальное количество удалений для подстроки s[l..r]
-            if ((s[l] == '(' && s[r] == ')') ||
-                (s[l] == '[' && s[r] == ']') ||
-                (s[l] == '{' && s[r] == '}')) {
-                dp[l][r] = dp[l + 1][r - 1];
+    if (debug) {
+        cout << ". ";
+        for (int i=0; i<n; i++) {
+            cout << s[i] << " ";
+        }
+        cout << endl;
+    }
+    if (debug) {
+        cout << "  ";
+        for (int i=0; i<n; i++) {
+            cout << i << " ";
+        }
+        cout << endl;
+    }
+
+    for (int i=0; i<n; i++) {
+        for (int j=i; j>=0; j--) {
+            if (i == j) {
+                m[i][j].insert(i);
+                continue;
+            }
+            
+            if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
+                m[i][j].insert(m[i-1][j].begin(), m[i-1][j].end());
+                m[i][j].insert(i);
+                continue;
+            }
+
+            // m[i][j] = min(m[i-1][j] + 1, m[i][j+1] + 1);
+            if (m[i-1][j].size() < m[i][j+1].size()) {
+                m[i][j].insert(m[i-1][j].begin(), m[i-1][j].end());
+                m[i][j].insert(i);
             } else {
-                dp[l][r] = n;  // Инициализируем максимальным значением
-                for (int k = l; k < r; ++k) {
-                    dp[l][r] = min(dp[l][r], dp[l][k] + dp[k + 1][r]);
+                m[i][j].insert(m[i][j+1].begin(), m[i][j+1].end());
+                m[i][j].insert(j);
+            }
+            
+            if ((s[j] == '(' && s[i] == ')') || (s[j] == '[' && s[i] == ']') || (s[j] == '{' && s[i] == '}')) {
+                // m[i][j] = min({m[i-1][j+1], m[i-1][j] + 1, m[i][j+1] + 1});
+                if (m[i][j].size() > m[i-1][j+1].size()) {
+                    m[i][j].clear();
+                    m[i][j].insert(m[i-1][j+1].begin(), m[i-1][j+1].end());
+                }
+                continue;
+            }
+
+            if (s[j] == '(' || s[j] == '[' || s[j] == '{') {
+                for (int z=j; z<i; z++) {
+                    // m[i][j] = min({m[i][j], m[z][j] + m[i][z+1]});
+                    if (m[i][j].size() > m[z][j].size() + m[i][z+1].size()) {
+                        m[i][j].clear();
+                        m[i][j].insert(m[z][j].begin(), m[z][j].end());
+                        m[i][j].insert(m[i][z+1].begin(), m[i][z+1].end());
+                    }
                 }
             }
         }
     }
-    
-    // Функция для восстановления скобочной последовательности
-    function<string(int, int)> restoreSequence = [&](int l, int r) -> string {
-        if (l > r) return "";
-        if (l == r) return string(1, s[l]);  // Одиночный символ
-        if ((s[l] == '(' && s[r] == ')') ||
-            (s[l] == '[' && s[r] == ']') ||
-            (s[l] == '{' && s[r] == '}')) {
-            return s[l] + restoreSequence(l + 1, r - 1) + s[r];
-        }
-        for (int k = l; k < r; ++k) {
-            if (dp[l][r] == dp[l][k] + dp[k + 1][r]) {
-                return restoreSequence(l, k) + restoreSequence(k + 1, r);
+
+    // debug
+    if (debug) {
+        for (int i=0; i<n; i++) {
+            cout << i << " ";
+            for (int j=0; j<=i; j++) {
+                cout << m[i][j].size() << " ";
             }
+            cout << endl;
         }
-        return "";  // Недостижимый код
-    };
-    
-    // Восстанавливаем результат для всей строки s
-    return restoreSequence(0, n - 1);
+    }
+
+    // for (int cc : m[10][0]) {
+    //     cout << cc << endl;
+    // }
+    string ans;
+    for (int i=0; i<n; i++) {
+        if (!m[n-1][0].count(i)) {
+            ans.push_back(s[i]);
+        }
+    }
+    return ans;
 }
 
 int main() {
@@ -76,7 +118,4 @@ int main() {
     } else {
         cout << result;
     }
-    
 }
-// https://qna.habr.com/q/934791
-// {]((}][(}]))
