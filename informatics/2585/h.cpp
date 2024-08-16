@@ -1,5 +1,5 @@
 /**
- * https://informatics.msk.ru/mod/statements/view.php?id=2585&chapterid=3070#1
+ * https://informatics.msk.ru/mod/statements/view.php?id=2585&chapterid=3071#1
  * @author Arman Sydikov
  */
 #include <bits/stdc++.h>
