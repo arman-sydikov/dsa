@@ -34,5 +34,5 @@ https://nayon.net/solve-bits-stdc-h-file-not-found-in-macos/
 - [x] https://informatics.msk.ru/mod/statements/view.php?id=248 (J-P)
 - [ ] https://informatics.msk.ru/mod/statements/view.php?id=253 (все задачи)
 - [ ] https://informatics.msk.ru/mod/statements/view.php?id=268 (все задачи)
-- [ ] https://informatics.msk.ru/mod/statements/view.php?id=254 (A-B)
+- [x] https://informatics.msk.ru/mod/statements/view.php?id=254 (A-B)
 - [ ] https://informatics.msk.ru/mod/statements/view.php?id=2550 (A-B)
