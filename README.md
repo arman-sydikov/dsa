@@ -80,7 +80,8 @@ The final location of the header should be: /usr/local/include/bits/stdc++.h
 
 ### 2024-08-30
 
-- [ ] https://informatics.msk.ru/mod/statements/view.php?id=207&chapterid=56 (C,F,I)
+- [x] https://informatics.msk.ru/mod/statements/view.php?id=207&chapterid=56 (C,F,I)
+- [ ] https://acmp.ru (200 задачу упорядоченных по сложности)
 
 чтобы перейти на 1 уровень:
 сортировки (сорт слиянием, быстрая сорт, пузырковая сорт, сорт вставками, квадратичная сорт)
