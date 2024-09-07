@@ -80,15 +80,18 @@ The final location of the header should be: /usr/local/include/bits/stdc++.h
 
 ### 2024-08-30
 
-- [x] https://informatics.msk.ru/mod/statements/view.php?id=207&chapterid=56 (C,F,I)
-- [ ] https://acmp.ru (200 задачу упорядоченных по сложности)
+- [x] https://informatics.msk.ru/mod/statements/view.php?id=207 (C,F,I)
+- [x] https://informatics.msk.ru/mod/statements/view.php?id=206 (все задачи)
+
+### 2024-09-07
+
+- [ ] https://acmp.ru/asp/do/index.asp?main=course&id_course=1 (200 задач)
 
 чтобы перейти на 1 уровень:
 сортировки (сорт слиянием, быстрая сорт, пузырковая сорт, сорт вставками, квадратичная сорт)
 бинарный поиск
 динамическое програмирование
 графы
-
 
 ## TODO
 
