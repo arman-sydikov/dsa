@@ -83,6 +83,10 @@ The final location of the header should be: /usr/local/include/bits/stdc++.h
 - [x] https://informatics.msk.ru/mod/statements/view.php?id=207 (C,F,I)
 - [x] https://informatics.msk.ru/mod/statements/view.php?id=206 (все задачи)
 
+### 2024-09-05
+
+- [x] https://codeforces.com/group/u8pLzn9xS6/contest/547800
+
 ### 2024-09-07
 
 - [ ] https://acmp.ru/asp/do/index.asp?main=course&id_course=1 (200 задач)
