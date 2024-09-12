@@ -89,7 +89,10 @@ The final location of the header should be: /usr/local/include/bits/stdc++.h
 
 ### 2024-09-07
 
-- [ ] https://acmp.ru/asp/do/index.asp?main=course&id_course=1 (200 задач)
+- [ ] https://acmp.ru/asp/do/index.asp?main=section&id_section=1
+- [ ] https://informatics.msk.ru/mod/statements/view.php?id=271 Квадратичные сортировки (F, G, H, I)
+- [ ] https://informatics.msk.ru/mod/statements/view.php?id=1129 Быстрая сортировка (В)
+- [ ] https://informatics.msk.ru/mod/statements/view.php?id=1121 Сортировка слиянием (А, В)
 
 чтобы перейти на 1 уровень:
 сортировки (сорт слиянием, быстрая сорт, пузырковая сорт, сорт вставками, квадратичная сорт)

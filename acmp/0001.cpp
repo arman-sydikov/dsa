@@ -6,13 +6,7 @@
 using namespace std;
 
 int main() {
-    // fast input
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
-    // input
-    long long a, b;
+    int a, b;
     cin >> a >> b;
-
-    cout << a+b;
+    cout << a+b << endl;
 }
