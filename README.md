@@ -87,12 +87,17 @@ The final location of the header should be: /usr/local/include/bits/stdc++.h
 
 - [x] https://codeforces.com/group/u8pLzn9xS6/contest/547800
 
-### 2024-09-07
+### 2024-09-07 (sorting)
 
 - [ ] https://acmp.ru/asp/do/index.asp?main=section&id_section=1
 - [ ] https://informatics.msk.ru/mod/statements/view.php?id=271 Квадратичные сортировки (F, G, H, I)
-- [ ] https://informatics.msk.ru/mod/statements/view.php?id=1129 Быстрая сортировка (В)
-- [ ] https://informatics.msk.ru/mod/statements/view.php?id=1121 Сортировка слиянием (А, В)
+- [x] https://informatics.msk.ru/mod/statements/view.php?id=1129 Быстрая сортировка (В)
+- [x] https://informatics.msk.ru/mod/statements/view.php?id=1121 Сортировка слиянием (А, В)
+
+### 2024-09-12 (binary search)
+
+- [ ] https://informatics.msk.ru/mod/statements/view.php?id=192 (C, D)
+- [ ] https://informatics.msk.ru/mod/statements/view.php?id=1966 (все задачи)
 
 чтобы перейти на 1 уровень:
 сортировки (сорт слиянием, быстрая сорт, пузырковая сорт, сорт вставками, квадратичная сорт)
