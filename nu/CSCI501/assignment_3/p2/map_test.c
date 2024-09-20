@@ -120,6 +120,24 @@ void testGetValueWhenMapIsEmpty() {
     destroy_map(m);
 }
 
+void testLoadFactor() {
+    // Prepare test data
+    map *m = create_map();
+
+    // Execute function and assert results
+    for (int i=1; i<=25; i++) {
+        char numStr[3];
+        sprintf(numStr, "%d", i);
+        define(m, numStr, i);
+        printf("%i %f %f\n", i, load_factor(m), bucket_size_stdev(m));
+    }
+
+    assert(load_factor(m) == 1.5625);
+
+    // Clean up memory
+    destroy_map(m);
+}
+
 int main() {
     testPrintMap();
     testContainsKey();
@@ -129,6 +147,7 @@ int main() {
     testGetValueWhenKeysAreEqual();
     testGetValueWhenKeysAreNotEqual();
     testGetValueWhenMapIsEmpty();
+    testLoadFactor();
 
     return 0;
 }
